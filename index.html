@@ -1,165 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manjunath Sharma | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manjunath Sharma</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="site-header">
-        <h1>Manjunath Sharma</h1>
-        <p>Mechatronics Engineer · UNSW</p>
-    </header>
+  <!-- NAV -->
+  <nav>
+    <div class="inner">
+      <a href="#hero" class="nav-wordmark">Manjunath Sharma</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- About Me -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I am a passionate Mechatronic engineering student with extensive experience in CAD and
-            mechanical fabrication. Notable projects include the designing and manufacturing of chemically
-            powered vehicles (ChemECar and Solar Sunray Car). Through these projects I have gained
-            proficiency in SolidWorks, Finite Element Analysis, C programming as well as 3D manufacturing and
-            fabrication. I am also honoured to have been awarded the Long Tan ADF future innovator award for
-            my projects and excellence in STEM. I combine a deep theoretical understanding of mechanical and
-            electrical systems with hands-on experience in 3D printing as seen in my portfolio of projects.
+  <!-- HERO -->
+  <section id="hero">
+    <div class="wrap">
+      <div class="hero-eyebrow">
+        <span class="status-dot"></span>
+        Mechatronics Engineer &nbsp;·&nbsp; UNSW Sydney
+      </div>
+      <div class="hero-name">
+        Manjunath
+        <span>Sharma</span>
+      </div>
+      <div class="hero-bottom">
+        <p class="hero-desc">
+          I design and build things — from chemically powered vehicles to
+          self-hosted infrastructure. Currently at UNSW, competing internationally,
+          and pushing tolerances as close to zero as possible.
         </p>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects">
-        <h2>Projects</h2>
-
-        <div class="card">
-            <h3>ChemECar</h3>
-            <p>
-                The ChemECar project involved developing a model vehicle powered exclusively by chemical reactions. As a Mechanical Design Engineer,
-                I utilized SolidWorks to model and assemble critical components, ensuring seamless integration with subsystems designed by cross functional teams. 
-                This role required high precision modeling and a 'Design for Manufacture' approach, as parts were 3D printed and assembled for international 
-                competition in China. The project sharpened my ability to manage complex technical interfaces and prioritize deliverables within a high-stakes, 
-                collaborative environment.
+        <div class="hero-meta">
+          <div class="meta-item">
+            <div class="meta-val">97.10</div>
+            <div class="meta-label">ATAR</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-val">4</div>
+            <div class="meta-label">Projects</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-val">ADF</div>
+            <div class="meta-label">Long Tan Award</div>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card">
-            <h3>Gridfinity System</h3>
-            <p>
-                The Gridfinity system, designed by Zach Freedman, is a modular, 3D-printable storage solution for workspace organization. 
-                I utilized this project to deepen my expertise in CAD and additive manufacturing while streamlining my own workspace.
-                After printing standard 42 mm x 42 mm baseplates on my personal printer, I designed custom component housings in Fusion 360.
-                This required precise modeling within strict dimensional constraints to ensure a "perfect fit" for various tools. 
-                By optimizing these designs for manufacture (DfM), I successfully reduced print time, filament consumption, and overall cost without 
-                compromising quality.
-            </p>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-label">About</div>
+      <div class="about-layout">
+        <div class="about-text">
+          <p>
+            I'm a <strong>Mechatronic Engineering student at UNSW</strong> with a deep focus on
+            CAD, mechanical fabrication, and embedded systems. My work lives at the boundary
+            between hardware and software — where design decisions have physical consequences.
+          </p>
+          <p>
+            I've led mechanical design on vehicles that competed <strong>internationally in China</strong>,
+            run Cloudflare-secured home servers, and optimised 3D-printed assemblies to shave
+            filament and time without sacrificing fit. I care about precision — in tolerances,
+            in code, and in how I explain things to others.
+          </p>
+          <p>
+            Outside engineering I teach HSC Physics, and I was honoured to receive the
+            <strong>ADF Long Tan Future Innovators Award</strong> for excellence in STEM.
+          </p>
         </div>
-
-        <div class="card">
-            <h3>Self-Hosted Website</h3>
-            <p>
-                This website is self-hosted on my private server. As anyone familiar with self-hosting knows, exposing a home network to the open internet
-                carries significant risks from bots and malicious actors. To mitigate this, I routed all traffic through Cloudflare Tunnels,
-                effectively masking my home IP and securing the connection. Built using HTML and CSS, the site’s full source code is available on my GitHub 
-                (found in the contacts section). This project was a deep dive into the intricacies of networking and SSH, reinforcing the importance of 
-                a "security-first" mindset when building public-facing infrastructure.
-            </p>
-        
-        </div>
-
-        <div class="card">
-            <h3>Solar Sunray</h3>
-            <p>
-                For this university design project, I collaborated with a team to develop a solar-powered vehicle utilizing a hybrid array of four panels 
-                (two small, two large). To maintain operational efficiency across diverse environmental conditions—ranging from direct sunlight to heavy cloud 
-                cover—we engineered an adaptive electrical system. By implementing an eight-switch configuration, we enabled real-time toggling between series and 
-                parallel circuits, allowing us to optimize voltage and current based on available irradiance. Although we developed a custom gear-switching system, 
-                time constraints shifted our focus toward perfecting the electrical optimization. This experience was pivotal in learning how to integrate diverse 
-                technical perspectives within a collaborative team environment.
-        
-        </div>
-    </section>
-
-
-    <!-- Honourable Mentions-->
-     <section id="Honourable Mentions">
-            <h2>Honourable Mentions</h2>
-            <div class ="card">
-                <ul>
-                    <li>ATAR: 97.10</li>
-                    <li> Recipient of ADF Long Tan Future Innovators Award</li>
-                    <li>Engineering Studies: 98</li>
-                    <li> Mathematics Advanced: 95</li>
-
-
-                </ul>
-
+        <div class="about-aside">
+          <div class="aside-block">
+            <div class="aside-block-label">Toolset</div>
+            <div class="skill-list">
+              <span class="skill">SolidWorks</span>
+              <span class="skill">Fusion 360</span>
+              <span class="skill">FEA</span>
+              <span class="skill">C</span>
+              <span class="skill">3D Printing</span>
+              <span class="skill">DfM</span>
+              <span class="skill">SSH</span>
+              <span class="skill">Cloudflare</span>
+              <span class="skill">HTML / CSS</span>
             </div>
-    
-    
-    </section>
+          </div>
+          <div class="aside-block">
+            <div class="aside-block-label">Academic Results</div>
+            <div class="award-row">
+              <div class="award-entry">
+                <span class="award-name">ATAR</span>
+                <span class="award-score">97.10</span>
+              </div>
+              <div class="award-entry">
+                <span class="award-name">Engineering Studies</span>
+                <span class="award-score">98</span>
+              </div>
+              <div class="award-entry">
+                <span class="award-name">Mathematics Advanced</span>
+                <span class="award-score">95</span>
+              </div>
+              <div class="award-entry">
+                <span class="award-name">ADF Long Tan Award</span>
+                <span class="award-score" style="font-size:11px;letter-spacing:0.05em">Recipient</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-label">Projects</div>
+      <h2>What I've <em>built</em></h2>
+      <div class="projects-list">
 
-
-
-    <!-- Experience -->
-    <section id="experience">
-        <h2>Experience</h2>
-
-        <div class="card">
-            <h3>Physics Specialist — Ngo & Sons</h3>
-            <p>
-                Responsibilities
-                <ul>
-                    <li>
-                        Specialist Physics tutoring for HSC students
-                    </li>
-                    <li>
-                        Content Optimisation
-                    </li>
-                    <li>
-                        Online platform creation
-                    </li>
-
-
-                </ul>
-            </p>
+        <div class="project-row">
+          <div class="project-index">01</div>
+          <div class="project-body">
+            <h3>ChemECar</h3>
+            <p>A model vehicle powered exclusively by chemical reactions, designed for international competition in China. Led mechanical design in SolidWorks with a DfM-first approach, producing precision 3D-printed assemblies for cross-functional integration.</p>
+          </div>
+          <div class="project-tags-col">
+            <span class="ptag">SolidWorks</span>
+            <span class="ptag">3D Printing</span>
+            <span class="ptag">Competition</span>
+          </div>
         </div>
 
-        <div class="card">
-            <h3>HSC Physics Mentor — Privately owned</h3>
-            <p>
-                Privately tutored students in top 50 schools in NSW, with students achieving top 10 ranks in their schools. 
-            </p>
+        <div class="project-row">
+          <div class="project-index">02</div>
+          <div class="project-body">
+            <h3>Solar Sunray Vehicle</h3>
+            <p>Solar-powered vehicle with a hybrid 4-panel array. Engineered an adaptive 8-switch circuit for real-time series/parallel toggling — optimising voltage and current delivery across variable irradiance conditions.</p>
+          </div>
+          <div class="project-tags-col">
+            <span class="ptag">Power Electronics</span>
+            <span class="ptag">Circuit Design</span>
+            <span class="ptag">Solar</span>
+          </div>
         </div>
-    </section>
 
-    <!-- Hobbies -->
-    <section id="hobbies">
-        <h2>Hobbies</h2>
-        <ul>
-            <li>3D printing and CAD modelling</li>
-            <li>Strength training (PR's = Bench: 85kg Squat: 100KG Deadlift: 150kg) ~All 3 Reps (I dont egolift)</li>
-            <li> Running (Distance PR: 14km)</li>
-            <li>Teaching others subjects I am passionate about</li>
-            <li>Learning new engineering tools and technologies</li>
-        </ul>
-    </section>
+        <div class="project-row">
+          <div class="project-index">03</div>
+          <div class="project-body">
+            <h3>Gridfinity System</h3>
+            <p>Extended Zach Freedman's modular storage system with custom Fusion 360 housings. Precision-toleranced for perfect fit while reducing filament and print time — a study in constrained DfM.</p>
+          </div>
+          <div class="project-tags-col">
+            <span class="ptag">Fusion 360</span>
+            <span class="ptag">Additive Mfg</span>
+          </div>
+        </div>
 
-    <!-- Contact -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>If you think you have any opportunities where I could learn or push myself further don't hesitate to 
-            contact me. :) 
-        </p>
-        <p>Email: <a href="mailto:mmaniyoormadham@gmail.com">mmaniyoormadham@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/manjunath-sharma10" target="_blank" rel="noopener noreferrer">linkedin.com/in/manjunath-sharma10</a></p>
-        <p>GitHub: <a href="https://github.com/manjunathsharma10" target="_blank" rel="noopener noreferrer">github.com/manjunathsharma10</a></p>
-    </section>
+        <div class="project-row">
+          <div class="project-index">04</div>
+          <div class="project-body">
+            <h3>Self-Hosted Website</h3>
+            <p>This site runs on a private home server, traffic routed through Cloudflare Tunnels to mask the home IP. A deep dive into networking, SSH security, and building public-facing infrastructure with a security-first mindset.</p>
+          </div>
+          <div class="project-tags-col">
+            <span class="ptag">Cloudflare</span>
+            <span class="ptag">Networking</span>
+            <span class="ptag">SSH</span>
+          </div>
+        </div>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <p>© 2026 Manjunath Sharma</p>
-    </footer>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-label">Experience</div>
+      <h2>Where I've <em>taught</em></h2>
+      <div class="exp-grid">
+
+        <div class="exp-card">
+          <div class="exp-period">Current</div>
+          <h3>Physics Specialist</h3>
+          <div class="exp-org">Ngo &amp; Sons</div>
+          <ul class="exp-points">
+            <li>Specialist HSC Physics tutoring</li>
+            <li>Curriculum content optimisation</li>
+            <li>Online platform creation and management</li>
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-period">Prior</div>
+          <h3>HSC Physics Mentor</h3>
+          <div class="exp-org">Private — Top 50 NSW Schools</div>
+          <ul class="exp-points">
+            <li>Privately tutored students across NSW's top 50 schools</li>
+            <li>Students consistently achieved top 10 school ranks in Physics</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOBBIES -->
+  <section id="hobbies">
+    <div class="wrap">
+      <div class="section-label">Outside Work</div>
+      <h2>How I spend <em>the rest</em></h2>
+      <div class="hobbies-layout">
+
+        <div class="hobby-tile">
+          <span class="hobby-tile-icon">🖨️</span>
+          <div class="hobby-tile-name">3D Printing &amp; CAD</div>
+          <div class="hobby-tile-detail">Fusion 360 · FDM · Tolerancing</div>
+        </div>
+
+        <div class="hobby-tile">
+          <span class="hobby-tile-icon">🏋️</span>
+          <div class="hobby-tile-name">Strength Training</div>
+          <div class="hobby-tile-detail">All 3 rep maxes. No ego lifting.</div>
+          <div class="lifts">
+            <div class="lift-row">
+              <span class="lift-name">Bench</span>
+              <div class="lift-track"><div class="lift-fill" style="width:57%"></div></div>
+              <span class="lift-val">85 kg</span>
+            </div>
+            <div class="lift-row">
+              <span class="lift-name">Squat</span>
+              <div class="lift-track"><div class="lift-fill" style="width:67%"></div></div>
+              <span class="lift-val">100 kg</span>
+            </div>
+            <div class="lift-row">
+              <span class="lift-name">Deadlift</span>
+              <div class="lift-track"><div class="lift-fill" style="width:100%"></div></div>
+              <span class="lift-val">150 kg</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hobby-tile">
+          <span class="hobby-tile-icon">🏃</span>
+          <div class="hobby-tile-name">Running</div>
+          <div class="hobby-tile-detail">Distance PR: 14 km</div>
+        </div>
+
+        <div class="hobby-tile">
+          <span class="hobby-tile-icon">📡</span>
+          <div class="hobby-tile-name">Teaching</div>
+          <div class="hobby-tile-detail">Physics · Maths · STEM</div>
+        </div>
+
+        <div class="hobby-tile">
+          <span class="hobby-tile-icon">⚙️</span>
+          <div class="hobby-tile-name">Learning New Tools</div>
+          <div class="hobby-tile-detail">Continuous engineering education</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-label">Contact</div>
+      <div class="contact-layout">
+        <div>
+          <div class="contact-headline">
+            Have an opportunity where I can learn and push myself further?
+          </div>
+          <p class="contact-sub">
+            I'm open to roles, research, and any challenging engineering problems.
+            Don't hesitate to reach out.
+          </p>
+        </div>
+        <div class="contact-links-col">
+          <a href="mailto:manjunath.sharma.official@gmail.com" class="contact-link">
+            <span class="cl-label">Email</span>
+            <span class="cl-value">manjunath.sharma.official@gmail.com</span>
+            <span class="cl-arrow">↗</span>
+          </a>
+          <a href="https://linkedin.com/in/manjunath-sharma10" target="_blank" class="contact-link">
+            <span class="cl-label">LinkedIn</span>
+            <span class="cl-value">manjunath-sharma10</span>
+            <span class="cl-arrow">↗</span>
+          </a>
+          <a href="https://github.com/manjunathsharma10" target="_blank" class="contact-link">
+            <span class="cl-label">GitHub</span>
+            <span class="cl-value">manjunathsharma10</span>
+            <span class="cl-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="inner">
+      <span class="footer-name">Manjunath Sharma</span>
+      <span class="footer-copy">© 2026 · Self-Hosted · Sydney</span>
+    </div>
+  </footer>
 
 </body>
 </html>
