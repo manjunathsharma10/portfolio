@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pantrific - Feel Better Through Food</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo"><img src="/static/screenshots/logo.png" alt="Pantrific logo" class="logo-img">Pantrific</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#screens">App</a></li>
+          <li><a href="#tech">Tech Stack</a></li>
+          <li><a href="https://pantrific.tomasvana.dev/" target="_blank" class="nav-demo">Live Demo</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span class="toggle-track">
+            <span class="toggle-sun">&#9788;</span>
+            <span class="toggle-moon">&#9790;</span>
+            <span class="toggle-thumb"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="hero-tag">UNIHACK 2026</p>
+        <h1>Feel Better<br>Through Food</h1>
+        <p class="hero-subtitle">
+          Your wellbeing and mood are shaped by what you eat. Tell Pantrific
+          how you want to feel, any vitamin deficiencies, and your calorie and
+          macro goals and it delivers amazing recipes tailored to you.
+          The result: deeper sleep, sharper focus, more energy, and an overall
+          mood lift. All built from whatever you already have in the fridge.
+        </p>
+        <div class="hero-actions">
+          <a href="https://pantrific.tomasvana.dev/" target="_blank" class="btn btn-primary">Live Demo</a>
+          <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="phone-mockup hero-phone">
+          <div class="phone-screen">
+            <video src="/static/screenshots/meals_screen.mp4" autoplay muted loop playsinline></video>
+            <div class="placeholder-screen">
+              <span class="placeholder-emoji">🍽️</span>
+              <span class="placeholder-label">Meals Screen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bg-glow"></div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2 class="section-title">Food That Fits How You Feel</h2>
+      <p class="section-subtitle">Choose a goal. Get recipes that actually help you reach it.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">😴</div>
+          <h3>Better Sleep</h3>
+          <p>Struggling to wind down? Pantrific suggests magnesium rich dinners, tryptophan-boosting snacks, and calming evening meals from what's already in your kitchen.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Higher Energy</h3>
+          <p>Feeling drained by midday? Get meals packed with complex carbs, iron, and B-vitamins that sustain your energy instead of spiking and crashing it.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">😊</div>
+          <h3>Mood Boost</h3>
+          <p>Food directly affects your brain chemistry. Pantrific prioritises omega-3s, folate, and vitamin D in its suggestions to help lift your mood naturally.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3>Sharper Focus</h3>
+          <p>Need to concentrate? Get recipes rich in antioxidants, healthy fats, and choline that support cognitive performance and keep brain fog at bay.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📷</div>
+          <h3>Knows Your Kitchen</h3>
+          <p>A Raspberry Pi camera with YOLO detection sees exactly what's in your fridge and pantry. No manual entry every suggestion uses ingredients you actually have.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Track Your Progress</h3>
+          <p>Log the recipes you eat and watch your nutrient intake trend over time. See how your diet aligns with your wellbeing goals day by day, week by week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">From how you want to feel to a meal on your plate</p>
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Tell Us How You Want to Feel</h3>
+            <p>During onboarding, share your wellbeing goals better sleep, more energy, improved mood along with any nutrient deficiencies or dietary needs
+              that will be accounted for.</p>
+          </div>
+          <div class="step-icon">🎯</div>
+        </div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>We See What You Have</h3>
+            <p>A Raspberry Pi camera scans your fridge and pantry using YOLO object detection. It identifies every ingredient automatically so nothing goes to waste.</p>
+          </div>
+          <div class="step-icon">📷</div>
+        </div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>AI Builds Your Recipes</h3>
+            <p>Spoonacular AI and Gemini AI analyses the micro and macronutrients and combines your ingredients, your goals, and nutritional science to generate personalised meals. Each recipe is chosen because it moves the needle on how you feel.</p>
+          </div>
+          <div class="step-icon">🧠</div>
+        </div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Cook, Eat, Feel Better</h3>
+            <p>Follow step-by-step instructions, log what you eat, and track how your nutrient intake trends against your wellbeing targets over time.</p>
+          </div>
+          <div class="step-icon">✨</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Screenshots -->
+  <section id="screens" class="screens">
+    <div class="container">
+      <h2 class="section-title">The App</h2>
+      <p class="section-subtitle">A warm, intuitive experience designed around how you want to feel</p>
+      <div class="screens-grid">
+        <div class="screen-card">
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <video src="/static/screenshots/onboarding.mov" autoplay muted loop playsinline></video>
+              <div class="placeholder-screen">
+                <span class="placeholder-emoji">👋</span>
+                <span class="placeholder-label">Onboarding</span>
+              </div>
+            </div>
+          </div>
+          <h4>Tell Us Your Goals</h4>
+          <p>Share how you want to feel, your diet type, cuisine preferences, and any deficiencies. Pantrific builds a profile around your wellbeing.</p>
+        </div>
+        <div class="screen-card">
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <video src="/static/screenshots/pantries.mov" autoplay muted loop playsinline></video>
+              <div class="placeholder-screen">
+                <span class="placeholder-emoji">📦</span>
+                <span class="placeholder-label">Pantries</span>
+              </div>
+            </div>
+          </div>
+          <h4>Your Kitchen, Mapped</h4>
+          <p>See everything the camera detected across your fridge and pantry. Every meal suggestion starts from ingredients you actually have on hand.</p>
+        </div>
+        <div class="screen-card">
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <video src="/static/screenshots/meals_feel_terence.mov" autoplay muted loop playsinline></video>
+            </div>
+          </div>
+          <h4>Meals for How You Feel</h4>
+          <p>AI-generated recipes tailored to your wellbeing goals. Each meal card shows why it was chosen and what nutrients it delivers for you.</p>
+        </div>
+        <div class="screen-card">
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <video src="/static/screenshots/meals_feel.mov" autoplay muted loop playsinline></video>
+              <div class="placeholder-screen">
+                <span class="placeholder-emoji">📝</span>
+                <span class="placeholder-label">Recipe Detail</span>
+              </div>
+            </div>
+          </div>
+          <h4>Cook with Purpose</h4>
+          <p>Every recipe comes with a clear benefit, full ingredient list, step-by-step instructions, and one-tap nutrient logging when you're done.</p>
+        </div>
+        <div class="screen-card">
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <video src="/static/screenshots/tracking.mov" autoplay muted loop playsinline></video>
+              <div class="placeholder-screen">
+                <span class="placeholder-emoji">📊</span>
+                <span class="placeholder-label">Tracking</span>
+              </div>
+            </div>
+          </div>
+          <h4>See Yourself Improve</h4>
+          <p>Daily progress bars and 7-day trend charts show how your eating patterns align with your wellbeing goals over time.</p>
+        </div>
+        <div class="screen-card">
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <video src="/static/screenshots/account.mov" autoplay muted loop playsinline></video>
+              <div class="placeholder-screen">
+                <span class="placeholder-emoji">⚙️</span>
+                <span class="placeholder-label">Account</span>
+              </div>
+            </div>
+          </div>
+          <h4>Refine Anytime</h4>
+          <p>Your goals change, and Pantrific adapts. Update how you want to feel, adjust deficiencies, or switch your diet type whenever you need to.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section id="tech" class="tech">
+    <div class="container">
+      <h2 class="section-title">What We Built</h2>
+      <p class="section-subtitle">Every layer of Pantrific was designed and engineered by our team</p>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-header">
+            <span class="tech-icon">🤖</span>
+            <h3>Custom Vision Model</h3>
+          </div>
+          <ul class="tech-list">
+            <li>Built a custom dataset and trained a YOLOv26m model locally to detect pantry items</li>
+            <li>Deployed the model to both Raspberry Pi and server for flexible inference</li>
+            <li>Capable of running fully offline with zero cloud dependency</li>
+            <li>Built a Python service to structure and relay detections to the API</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <div class="tech-header">
+            <span class="tech-icon">⚙️</span>
+            <h3>Backend API</h3>
+          </div>
+          <ul class="tech-list">
+            <li>Designed a RESTful API in Fastify with TypeScript</li>
+            <li>Wrote a full relational schema with Drizzle ORM &amp; Postgres</li>
+            <li>Implemented end-to-end request validation with Zod</li>
+            <li>Built custom token-based authentication from scratch</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <div class="tech-header">
+            <span class="tech-icon">📱</span>
+            <h3>Mobile App</h3>
+          </div>
+          <ul class="tech-list">
+            <li>Built a native Android app with Expo &amp; React Native</li>
+            <li>Engineered optimistic updates and real-time data sync</li>
+            <li>Designed a custom warm UI system with NativeWind</li>
+            <li>Created animated interactions and parallax effects</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <div class="tech-header">
+            <span class="tech-icon">🧠</span>
+            <h3>AI Pipeline</h3>
+          </div>
+          <ul class="tech-list">
+            <li>Engineered structured prompts that map goals to nutrients</li>
+            <li>Built a dual-AI pipeline using Gemini and Spoonacular</li>
+            <li>Designed a two-level caching system for fast responses</li>
+            <li>Created Zod schemas to enforce reliable AI output</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <div class="tech-header">
+            <span class="tech-icon">📦</span>
+            <h3>Monorepo Architecture</h3>
+          </div>
+          <ul class="tech-list">
+            <li>Structured the codebase as a pnpm monorepo</li>
+            <li>Set up TypeScript project references for type safety</li>
+            <li>Authored shared schemas &amp; utilities across all apps</li>
+            <li>Managed Python and Node dependencies side by side</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <div class="tech-header">
+            <span class="tech-icon">🏗️</span>
+            <h3>Infrastructure</h3>
+          </div>
+          <ul class="tech-list">
+            <li>Dockerised database</li>
+            <li>Wrote and managed migrations with Drizzle Kit</li>
+            <li>Implemented secure credential storage on-device</li>
+            <li>Configured environment-based deployment across services</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI + Coding -->
+  <section id="ai-coding" class="ai-coding">
+    <div class="container">
+      <h2 class="section-title">AI + Coding</h2>
+      <p class="section-subtitle">Training custom models and writing the code that powers Pantrific</p>
+      <div class="ai-coding-showcase">
+        <img src="/static/screenshots/ai-coding.jpg" alt="Training the YOLO model on Apple Silicon" class="ai-coding-img">
+      </div>
+      <p class="ai-coding-caption">Training YOLOv26m on a custom food dataset using Apple Silicon GPU — 50 epochs at 512&times;512 with real-time validation metrics</p>
+
+      <h2 class="section-title ai-coding-hw-title">Model Detection</h2>
+      <p class="section-subtitle">Real-time YOLO object detection identifying pantry and fridge items</p>
+      <div class="detection-carousel">
+        <button class="carousel-btn detection-prev" aria-label="Previous">&lsaquo;</button>
+        <div class="ai-coding-showcase">
+          <img src="/static/screenshots/detection1.png" alt="YOLO detection of fridge items" class="detection-img ai-coding-img">
+        </div>
+        <button class="carousel-btn detection-next" aria-label="Next">&rsaquo;</button>
+      </div>
+      <div class="detection-dots"></div>
+
+      <h2 class="section-title ai-coding-hw-title">The Hardware</h2>
+      <p class="section-subtitle">A Raspberry Pi powered vision system that sees what's in your kitchen</p>
+      <div class="ai-coding-showcase">
+        <video src="/static/screenshots/ai-coding-video.mp4" autoplay muted loop playsinline class="ai-coding-img"></video>
+      </div>
+      <div class="hardware-carousel">
+        <button class="carousel-btn carousel-prev" aria-label="Previous">&lsaquo;</button>
+        <div class="hardware-showcase">
+          <img src="/static/screenshots/hw1.jpg" alt="Pantrific device with camera" class="hardware-img">
+        </div>
+        <button class="carousel-btn carousel-next" aria-label="Next">&rsaquo;</button>
+      </div>
+      <div class="carousel-dots"></div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="team">
+    <div class="container">
+      <h2 class="section-title team-title">&lt;meet_the_team /&gt;</h2>
+      <p class="section-subtitle team-subtitle">// the devs who built Pantrific</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">M</div>
+          <h4>Manjunath</h4>
+          <p>AI Model specialist &amp; website dev</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">T</div>
+          <h4>Tomas</h4>
+          <p>Backend &amp; mobile development</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">C</div>
+          <h4>Cameron</h4>
+          <p>CAD &amp; 3D printing specialist</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">B</div>
+          <h4>Brendan</h4>
+          <p>Video editor &amp; script writer</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">T</div>
+          <h4>Terence</h4>
+          <p>Video editor &amp; voice over (vibe specialist)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo"><img src="/static/screenshots/logo.png" alt="Pantrific logo" class="logo-img">Pantrific</span>
+        <p>Feel better through food. Built for UNIHACK 2026.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#screens">App</a>
+        <a href="#tech">Tech Stack</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function setTheme(dark) {
+      root.setAttribute('data-theme', dark ? 'dark' : 'light');
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    }
+
+    // Init from saved preference or system preference
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+      setTheme(saved === 'dark');
+    } else {
+      setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+
+    document.querySelectorAll('.team-card').forEach(card => {
+      card.addEventListener('mouseenter', () => card.classList.add('revealed'));
+    });
+
+    toggle.addEventListener('click', () => {
+      const isDark = root.getAttribute('data-theme') === 'dark';
+      setTheme(!isDark);
+    });
+
+    // Detection carousel
+    const detImages = ['/static/screenshots/detection1.png', '/static/screenshots/detection2.png'];
+    let detIndex = 0;
+    const detImg = document.querySelector('.detection-img');
+    const detDotsContainer = document.querySelector('.detection-dots');
+
+    detImages.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => detGoTo(i));
+      detDotsContainer.appendChild(dot);
+    });
+
+    function detGoTo(i) {
+      detIndex = i;
+      detImg.style.opacity = 0;
+      setTimeout(() => {
+        detImg.src = detImages[detIndex];
+        detImg.style.opacity = 1;
+      }, 200);
+      detDotsContainer.querySelectorAll('.carousel-dot').forEach((d, j) => {
+        d.classList.toggle('active', j === detIndex);
+      });
+    }
+
+    document.querySelector('.detection-prev').addEventListener('click', () => {
+      detGoTo((detIndex - 1 + detImages.length) % detImages.length);
+    });
+    document.querySelector('.detection-next').addEventListener('click', () => {
+      detGoTo((detIndex + 1) % detImages.length);
+    });
+
+    let detTouchStartX = 0;
+    const detCarousel = document.querySelector('.detection-carousel');
+    detCarousel.addEventListener('touchstart', e => { detTouchStartX = e.touches[0].clientX; });
+    detCarousel.addEventListener('touchend', e => {
+      const diff = detTouchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        detGoTo((detIndex + (diff > 0 ? 1 : -1) + detImages.length) % detImages.length);
+      }
+    });
+
+    // Hardware carousel
+    const hwImages = [
+      '/static/screenshots/hw1.jpg', '/static/screenshots/hw2.jpg', '/static/screenshots/hw3.jpg',
+      '/static/screenshots/hw4.jpg', '/static/screenshots/hw5.jpg', '/static/screenshots/hw6.jpg',
+      '/static/screenshots/hw7.jpg'
+    ];
+    let hwIndex = 0;
+    const hwImg = document.querySelector('.hardware-img');
+    const dotsContainer = document.querySelector('.carousel-dots');
+
+    hwImages.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(i) {
+      hwIndex = i;
+      hwImg.style.opacity = 0;
+      setTimeout(() => {
+        hwImg.src = hwImages[hwIndex];
+        hwImg.style.opacity = 1;
+      }, 200);
+      dotsContainer.querySelectorAll('.carousel-dot').forEach((d, j) => {
+        d.classList.toggle('active', j === hwIndex);
+      });
+    }
+
+    document.querySelector('.carousel-prev').addEventListener('click', () => {
+      goTo((hwIndex - 1 + hwImages.length) % hwImages.length);
+    });
+    document.querySelector('.carousel-next').addEventListener('click', () => {
+      goTo((hwIndex + 1) % hwImages.length);
+    });
+
+    // Touch swipe support
+    let touchStartX = 0;
+    const carousel = document.querySelector('.hardware-carousel');
+    carousel.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+    carousel.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        goTo((hwIndex + (diff > 0 ? 1 : -1) + hwImages.length) % hwImages.length);
+      }
+    });
+  </script>
+</body>
+</html>
