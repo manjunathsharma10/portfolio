@@ -52,7 +52,7 @@
       <div class="hero-visual">
         <div class="phone-mockup hero-phone">
           <div class="phone-screen">
-            <video src="/static/screenshots/meals_screen.mp4" autoplay muted loop playsinline></video>
+            <video src="/static/screenshots/meals_screen.mp4" autoplay muted loop playsinline preload="metadata"></video>
             <div class="placeholder-screen">
               <span class="placeholder-emoji">🍽️</span>
               <span class="placeholder-label">Meals Screen</span>
@@ -159,7 +159,7 @@
         <div class="screen-card">
           <div class="phone-mockup">
             <div class="phone-screen">
-              <video src="/static/screenshots/onboarding.mov" autoplay muted loop playsinline></video>
+              <video data-src="/static/screenshots/onboarding.mp4" autoplay muted loop playsinline preload="none" class="lazy-video"></video>
               <div class="placeholder-screen">
                 <span class="placeholder-emoji">👋</span>
                 <span class="placeholder-label">Onboarding</span>
@@ -172,7 +172,7 @@
         <div class="screen-card">
           <div class="phone-mockup">
             <div class="phone-screen">
-              <video src="/static/screenshots/pantries.mov" autoplay muted loop playsinline></video>
+              <video data-src="/static/screenshots/pantries.mp4" autoplay muted loop playsinline preload="none" class="lazy-video"></video>
               <div class="placeholder-screen">
                 <span class="placeholder-emoji">📦</span>
                 <span class="placeholder-label">Pantries</span>
@@ -185,7 +185,7 @@
         <div class="screen-card">
           <div class="phone-mockup">
             <div class="phone-screen">
-              <video src="/static/screenshots/meals_feel_terence.mov" autoplay muted loop playsinline></video>
+              <video data-src="/static/screenshots/meals_feel_terence.mp4" autoplay muted loop playsinline preload="none" class="lazy-video"></video>
             </div>
           </div>
           <h4>Meals for How You Feel</h4>
@@ -194,7 +194,7 @@
         <div class="screen-card">
           <div class="phone-mockup">
             <div class="phone-screen">
-              <video src="/static/screenshots/meals_feel.mov" autoplay muted loop playsinline></video>
+              <video data-src="/static/screenshots/meals_feel.mp4" autoplay muted loop playsinline preload="none" class="lazy-video"></video>
               <div class="placeholder-screen">
                 <span class="placeholder-emoji">📝</span>
                 <span class="placeholder-label">Recipe Detail</span>
@@ -207,7 +207,7 @@
         <div class="screen-card">
           <div class="phone-mockup">
             <div class="phone-screen">
-              <video src="/static/screenshots/tracking.mov" autoplay muted loop playsinline></video>
+              <video data-src="/static/screenshots/tracking.mp4" autoplay muted loop playsinline preload="none" class="lazy-video"></video>
               <div class="placeholder-screen">
                 <span class="placeholder-emoji">📊</span>
                 <span class="placeholder-label">Tracking</span>
@@ -220,7 +220,7 @@
         <div class="screen-card">
           <div class="phone-mockup">
             <div class="phone-screen">
-              <video src="/static/screenshots/account.mov" autoplay muted loop playsinline></video>
+              <video data-src="/static/screenshots/account.mp4" autoplay muted loop playsinline preload="none" class="lazy-video"></video>
               <div class="placeholder-screen">
                 <span class="placeholder-emoji">⚙️</span>
                 <span class="placeholder-label">Account</span>
@@ -340,7 +340,7 @@
       <h2 class="section-title ai-coding-hw-title">The Hardware</h2>
       <p class="section-subtitle">A Raspberry Pi powered vision system that sees what's in your kitchen</p>
       <div class="ai-coding-showcase">
-        <video src="/static/screenshots/ai-coding-video.mp4" autoplay muted loop playsinline class="ai-coding-img"></video>
+        <video data-src="/static/screenshots/ai-coding-video.mp4" autoplay muted loop playsinline preload="none" class="ai-coding-img lazy-video"></video>
       </div>
       <div class="hardware-carousel">
         <button class="carousel-btn carousel-prev" aria-label="Previous">&lsaquo;</button>
@@ -518,6 +518,23 @@
         goTo((hwIndex + (diff > 0 ? 1 : -1) + hwImages.length) % hwImages.length);
       }
     });
+
+    // Lazy-load videos: only fetch and play when they enter the viewport
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          if (!video.src && video.dataset.src) {
+            video.src = video.dataset.src;
+          }
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { rootMargin: '100px' });
+
+    document.querySelectorAll('video.lazy-video').forEach(v => videoObserver.observe(v));
   </script>
 </body>
 </html>
