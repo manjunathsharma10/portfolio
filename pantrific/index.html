@@ -159,11 +159,7 @@
         <div class="screen-card">
           <div class="phone-mockup">
             <div class="phone-screen">
-              <video data-src="/static/screenshots/onboarding.mp4" autoplay muted loop playsinline preload="none" class="lazy-video" poster="/static/screenshots/poster_onboarding.jpg"></video>
-              <div class="placeholder-screen">
-                <span class="placeholder-emoji">👋</span>
-                <span class="placeholder-label">Onboarding</span>
-              </div>
+              <video src="/static/screenshots/onboarding.mp4" muted loop playsinline preload="none" class="lazy-video" poster="/static/screenshots/poster_onboarding.jpg"></video>
             </div>
           </div>
           <h4>Tell Us Your Goals</h4>
@@ -172,11 +168,7 @@
         <div class="screen-card">
           <div class="phone-mockup">
             <div class="phone-screen">
-              <video data-src="/static/screenshots/pantries.mp4" autoplay muted loop playsinline preload="none" class="lazy-video" poster="/static/screenshots/poster_pantries.jpg"></video>
-              <div class="placeholder-screen">
-                <span class="placeholder-emoji">📦</span>
-                <span class="placeholder-label">Pantries</span>
-              </div>
+              <video src="/static/screenshots/pantries.mp4" muted loop playsinline preload="none" class="lazy-video" poster="/static/screenshots/poster_pantries.jpg"></video>
             </div>
           </div>
           <h4>Your Kitchen, Mapped</h4>
@@ -185,7 +177,7 @@
         <div class="screen-card">
           <div class="phone-mockup">
             <div class="phone-screen">
-              <video data-src="/static/screenshots/meals_feel_terence.mp4" autoplay muted loop playsinline preload="none" class="lazy-video" poster="/static/screenshots/poster_meals_feel_terence.jpg"></video>
+              <video src="/static/screenshots/meals_feel_terence.mp4" muted loop playsinline preload="none" class="lazy-video" poster="/static/screenshots/poster_meals_feel_terence.jpg"></video>
             </div>
           </div>
           <h4>Meals for How You Feel</h4>
@@ -194,11 +186,7 @@
         <div class="screen-card">
           <div class="phone-mockup">
             <div class="phone-screen">
-              <video data-src="/static/screenshots/meals_feel.mp4" autoplay muted loop playsinline preload="none" class="lazy-video" poster="/static/screenshots/poster_meals_feel.jpg"></video>
-              <div class="placeholder-screen">
-                <span class="placeholder-emoji">📝</span>
-                <span class="placeholder-label">Recipe Detail</span>
-              </div>
+              <video src="/static/screenshots/meals_feel.mp4" muted loop playsinline preload="none" class="lazy-video" poster="/static/screenshots/poster_meals_feel.jpg"></video>
             </div>
           </div>
           <h4>Cook with Purpose</h4>
@@ -207,11 +195,7 @@
         <div class="screen-card">
           <div class="phone-mockup">
             <div class="phone-screen">
-              <video data-src="/static/screenshots/tracking.mp4" autoplay muted loop playsinline preload="none" class="lazy-video" poster="/static/screenshots/poster_tracking.jpg"></video>
-              <div class="placeholder-screen">
-                <span class="placeholder-emoji">📊</span>
-                <span class="placeholder-label">Tracking</span>
-              </div>
+              <video src="/static/screenshots/tracking.mp4" muted loop playsinline preload="none" class="lazy-video" poster="/static/screenshots/poster_tracking.jpg"></video>
             </div>
           </div>
           <h4>See Yourself Improve</h4>
@@ -220,11 +204,7 @@
         <div class="screen-card">
           <div class="phone-mockup">
             <div class="phone-screen">
-              <video data-src="/static/screenshots/account.mp4" autoplay muted loop playsinline preload="none" class="lazy-video" poster="/static/screenshots/poster_account.jpg"></video>
-              <div class="placeholder-screen">
-                <span class="placeholder-emoji">⚙️</span>
-                <span class="placeholder-label">Account</span>
-              </div>
+              <video src="/static/screenshots/account.mp4" muted loop playsinline preload="none" class="lazy-video" poster="/static/screenshots/poster_account.jpg"></video>
             </div>
           </div>
           <h4>Refine Anytime</h4>
@@ -340,7 +320,7 @@
       <h2 class="section-title ai-coding-hw-title">The Hardware</h2>
       <p class="section-subtitle">A Raspberry Pi powered vision system that sees what's in your kitchen</p>
       <div class="ai-coding-showcase">
-        <video data-src="/static/screenshots/ai-coding-video.mp4" autoplay muted loop playsinline preload="none" class="ai-coding-img lazy-video" poster="/static/screenshots/poster_ai-coding-video.jpg"></video>
+        <video src="/static/screenshots/ai-coding-video.mp4" muted loop playsinline preload="none" class="ai-coding-img lazy-video" poster="/static/screenshots/poster_ai-coding-video.jpg"></video>
       </div>
       <div class="hardware-carousel">
         <button class="carousel-btn carousel-prev" aria-label="Previous">&lsaquo;</button>
@@ -519,13 +499,13 @@
       }
     });
 
-    // Lazy-load videos: only fetch and play when they enter the viewport
+    // Lazy-load videos: only fetch and play when they scroll into view
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const video = entry.target;
         if (entry.isIntersecting) {
-          if (!video.src && video.dataset.src) {
-            video.src = video.dataset.src;
+          if (video.preload === 'none') {
+            video.preload = 'auto';
           }
           video.play().catch(() => {});
         } else {
