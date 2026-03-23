@@ -388,9 +388,10 @@ img {
   z-index: 2;
 }
 
-/* Hide placeholder when image loads */
-.phone-screen img[src] ~ .placeholder-screen {
-  z-index: 1;
+/* Hide placeholder when image loads or video has poster */
+.phone-screen img[src] ~ .placeholder-screen,
+.phone-screen video[poster] ~ .placeholder-screen {
+  display: none;
 }
 
 /* Show placeholder when image fails */
