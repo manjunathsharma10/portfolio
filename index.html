@@ -2,830 +2,593 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Manjunath Sharma</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manjunath Sharma — Mechatronics · UNSW Sydney</title>
+  <meta name="description" content="Manjunath Sharma — mechatronics engineering student at UNSW Sydney and founder of Solidity Solutions. CAD, DfM and precision manufacturing." />
+  <meta name="theme-color" content="#F7F5F0" />
+  <meta property="og:title" content="Manjunath Sharma — Mechatronics · UNSW Sydney" />
+  <meta property="og:description" content="Mechatronics engineering student at UNSW Sydney and founder of Solidity Solutions." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F7F5F0'/%3E%3Ctext x='32' y='46' font-family='Courier New,monospace' font-size='42' font-weight='700' fill='%23C4260B' text-anchor='middle'%3E±%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
+    /* ============================================================
+       Paper, ink, one red. Two typefaces, each with one job.
+       ============================================================ */
 
     :root {
-      --bg:        #0d0f0d;
-      --surface:   #141714;
-      --surface2:  #1a1e1a;
-      --green:     #b8ff57;
-      --green-dim: rgba(184,255,87,0.07);
-      --text:      #e8ede8;
-      --muted:     #6b7a6b;
-      --border:    rgba(255,255,255,0.07);
-      --border-g:  rgba(184,255,87,0.2);
+      --paper:    #F7F5F0;
+      --ink:      #131311;
+      --graphite: #66655E;
+      --hairline: #DDDAD1;
+      --red:      #C4260B;
+      --panel:    #EDEAE2;
+      color-scheme: light;
+    }
+
+    /* Metric-adjusted fallback so the giant hero doesn't jump on slow first paint */
+    @font-face {
+      font-family: 'Archivo Fallback';
+      src: local('Arial'), local('Helvetica Neue'), local('Helvetica');
+      size-adjust: 100.5%;
+      ascent-override: 91%;
+      descent-override: 22%;
+      line-gap-override: 0%;
+    }
+    @font-face {
+      font-family: 'Archivo Fallback';
+      font-weight: 700 800;
+      src: local('Arial Bold');
+      size-adjust: 103.5%;
+      ascent-override: 91%;
+      descent-override: 22%;
+      line-gap-override: 0%;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+
+    html { -webkit-text-size-adjust: 100%; }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Archivo', 'Archivo Fallback', sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      font-weight: 400;
       -webkit-font-smoothing: antialiased;
     }
 
-    ::selection { background: var(--green); color: #0d0f0d; }
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
+    ::selection { background: var(--ink); color: var(--paper); }
 
-    /* ── LAYOUT ─────────────────────────────────────── */
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
-    section { padding: 120px 0; }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.15em;
+    /* ── type roles ──────────────────────────────────────────── */
+    .mono {
+      font-family: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-variant-numeric: tabular-nums;
     }
+    .mono strong { font-weight: 500; }
 
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 20px;
-      height: 1px;
-      background: var(--green);
-    }
-
-    h2 {
-      font-size: clamp(28px, 4vw, 46px);
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      color: #fff;
-      margin-bottom: 56px;
-    }
-
-    h2 em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--text);
-      opacity: 0.55;
-    }
-
-    /* ── NAV ────────────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--border);
-      background: rgba(13,15,13,0.85);
-      backdrop-filter: blur(20px);
-    }
-
-    nav .inner {
-      max-width: 1080px;
+    /* ── layout ─────────────────────────────────────────────── */
+    .wrap {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 40px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding-inline: clamp(20px, 4vw, 48px);
     }
 
-    .nav-wordmark {
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--green);
-      letter-spacing: 0.06em;
-      text-decoration: none;
-    }
-
-    .nav-links { display: flex; list-style: none; gap: 36px; }
-
-    .nav-links a {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    /* ── HERO ───────────────────────────────────────── */
-    #hero {
-      min-height: 100vh;
+    .grid {
       display: grid;
-      align-items: end;
-      padding-top: 56px;
-      padding-bottom: 80px;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
     }
 
-    .hero-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 28px;
+    section { padding-block: clamp(4rem, 9vw, 8rem) 0; }
+    section[id] { scroll-margin-top: 84px; }
+
+    /* section opener: label + hairline */
+    .sec-head {
+      border-bottom: 1px solid var(--hairline);
+      padding-bottom: 10px;
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+    .sec-head .lbl { font: inherit; margin: 0; color: var(--ink); font-weight: 500; }
+
+    /* ── skip link ──────────────────────────────────────────── */
+    .skip {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--ink); color: var(--paper);
+      padding: 8px 16px; z-index: 200;
+    }
+    .skip:focus { left: 0; }
+
+    /* ── masthead ───────────────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--paper);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .masthead {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 28px;
+      height: 52px;
     }
-
-    .status-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--green);
-      animation: pulse 2.4s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.35; transform: scale(0.6); }
-    }
-
-    .hero-name {
-      font-size: clamp(54px, 10vw, 120px);
+    .masthead .name {
       font-weight: 500;
-      letter-spacing: -0.035em;
-      line-height: 0.95;
-      color: #fff;
-      margin-bottom: 40px;
+      color: var(--ink);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    nav {
+      margin-left: auto;
+    }
+    nav ul {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    nav a {
+      color: var(--graphite);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    nav a:hover { color: var(--red); }
+
+    nav a { white-space: nowrap; }
+
+    @media (max-width: 767px) {
+      header { position: static; }
+      .masthead {
+        flex-wrap: wrap;
+        height: auto;
+        padding-block: 12px;
+        row-gap: 6px;
+        gap: 16px;
+      }
+      nav { flex-basis: 100%; margin-left: 0; }
+      nav ul { justify-content: space-between; gap: 12px; }
     }
 
-    .hero-name span {
+    /* ── hero ───────────────────────────────────────────────── */
+    .hero { padding-block: clamp(4rem, 10vw, 8.5rem) 0; }
+
+    .hero .overline {
+      color: var(--graphite);
       display: block;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--text);
-      opacity: 0.45;
+      margin-bottom: clamp(1.25rem, 3vw, 2rem);
+    }
+    .hero .overline strong { color: var(--ink); }
+
+    h1 {
+      font-size: clamp(2rem, 9.5vw, 7.25rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+    h1 span { display: block; }
+    h1 .zero { color: var(--red); }
+
+    @media (max-width: 360px) {
+      h1 { font-size: clamp(1.55rem, 8.75vw, 2rem); }
     }
 
-    .hero-bottom {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: end;
-      padding-top: 56px;
-      border-top: 1px solid var(--border);
-    }
+    .hero .grid { margin-top: clamp(2.5rem, 6vw, 4.5rem); }
 
-    .hero-desc {
-      font-size: 16px;
-      color: var(--muted);
-      line-height: 1.75;
-      max-width: 420px;
-    }
-
-    .hero-meta {
-      display: flex;
-      justify-content: flex-end;
-      gap: 48px;
-    }
-
-    .meta-item { text-align: right; }
-
-    .meta-val {
-      font-family: 'DM Mono', monospace;
-      font-size: 28px;
+    .lede {
+      grid-column: 2 / 8;
+      font-size: 1.375rem;
       font-weight: 500;
-      color: var(--green);
+      line-height: 1.5;
+      text-wrap: pretty;
+    }
+
+    .hero-rail { grid-column: 10 / 13; }
+
+    .rail-list { list-style: none; }
+    .rail-list li {
+      color: var(--graphite);
+      padding-block: 7px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .rail-list li strong { color: var(--ink); }
+    .rail-list li:first-child { border-top: 1px solid var(--hairline); }
+
+    @media (max-width: 767px) {
+      .lede { grid-column: 1 / -1; font-size: 1.2rem; }
+      .hero-rail { grid-column: 1 / -1; }
+    }
+
+    /* ── profile ────────────────────────────────────────────── */
+    .prose { grid-column: 2 / 9; max-width: 62ch; text-wrap: pretty; }
+    .prose p + p { margin-top: 1.1em; }
+    .rail { grid-column: 10 / 13; }
+    .rail .blk + .blk { margin-top: 34px; }
+
+    @media (max-width: 767px) {
+      .prose { grid-column: 1 / -1; }
+      .rail { grid-column: 1 / -1; }
+    }
+
+    /* ── work: flagship panel ───────────────────────────────── */
+    .flagship {
+      background: var(--panel);
+      padding: clamp(28px, 5vw, 64px);
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+    }
+    .flag-tag {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .flag-tag .founder { color: var(--red); font-weight: 500; letter-spacing: 0.15em; }
+    .flag-tag .co { color: var(--graphite); }
+    .flagship h3 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1;
-      margin-bottom: 4px;
+      margin-bottom: 24px;
     }
-
-    .meta-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
+    .flagship > p { max-width: 62ch; text-wrap: pretty; }
+    .spec {
+      margin-top: 32px;
+      border-top: 1px solid var(--hairline);
     }
-
-    /* ── ABOUT ──────────────────────────────────────── */
-    #about { border-top: 1px solid var(--border); }
-
-    .about-layout {
+    .spec div {
       display: grid;
-      grid-template-columns: 5fr 4fr;
-      gap: 80px;
-      align-items: start;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      padding-block: 9px;
+      border-bottom: 1px solid var(--hairline);
     }
-
-    .about-text p {
-      font-size: 18px;
-      font-weight: 300;
-      color: var(--text);
-      opacity: 0.8;
-      margin-bottom: 18px;
-      line-height: 1.75;
-    }
-
-    .about-text p strong { color: #fff; font-weight: 500; }
-
-    .about-aside { display: flex; flex-direction: column; gap: 32px; }
-
-    .aside-block {
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-    }
-
-    .aside-block-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    .skill-list { display: flex; flex-wrap: wrap; gap: 8px; }
-
-    .skill {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      color: var(--text);
-      padding: 6px 12px;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      background: var(--surface);
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .skill:hover { border-color: var(--border-g); color: var(--green); }
-
-    .award-row { display: flex; flex-direction: column; gap: 10px; }
-
-    .award-entry {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 12px;
-    }
-
-    .award-name { font-size: 14px; color: var(--text); }
-
-    .award-score {
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      color: var(--green);
-      flex-shrink: 0;
-    }
-
-    /* ── PROJECTS ───────────────────────────────────── */
-    #projects { border-top: 1px solid var(--border); }
-
-    .projects-list { display: flex; flex-direction: column; }
-
-    .project-row {
-      display: grid;
-      grid-template-columns: 56px 1fr auto;
-      gap: 32px;
-      align-items: start;
-      padding: 40px 0;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.2s, padding 0.2s, margin 0.2s;
-    }
-
-    .project-row:first-child { border-top: 1px solid var(--border); }
-
-    .project-row:hover {
-      background: var(--green-dim);
-      margin: 0 -40px;
-      padding: 40px 40px;
-    }
-
-    .project-index {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      padding-top: 6px;
-      letter-spacing: 0.05em;
-    }
-
-    .project-body h3 {
-      font-size: 22px;
+    .spec dt { color: var(--graphite); }
+    .spec dd { color: var(--ink); font-weight: 500; }
+    .flag-link {
+      display: inline-block;
+      margin-top: 28px;
+      color: var(--red);
       font-weight: 500;
-      color: #fff;
-      letter-spacing: -0.01em;
-      margin-bottom: 10px;
-    }
-
-    .project-body p {
-      font-size: 15px;
-      color: var(--muted);
-      max-width: 580px;
-      line-height: 1.65;
-    }
-
-    .project-tags-col {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      align-items: flex-end;
-      padding-top: 4px;
-      min-width: 110px;
-    }
-
-    .ptag {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    /* ── EXPERIENCE ─────────────────────────────────── */
-    #experience { border-top: 1px solid var(--border); }
-
-    .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-
-    .exp-card { background: var(--surface); padding: 40px 36px; transition: background 0.2s; }
-    .exp-card:hover { background: var(--surface2); }
-
-    .exp-period {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 18px;
-    }
-
-    .exp-card h3 {
-      font-size: 20px;
-      font-weight: 500;
-      color: #fff;
-      margin-bottom: 4px;
-      letter-spacing: -0.01em;
-    }
-
-    .exp-org { font-size: 14px; color: var(--muted); margin-bottom: 24px; font-style: italic; }
-
-    .exp-points { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-
-    .exp-points li {
-      font-size: 14px;
-      color: var(--muted);
-      padding-left: 16px;
-      position: relative;
-      line-height: 1.55;
-    }
-
-    .exp-points li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--green);
-      font-size: 12px;
-    }
-
-    /* ── HOBBIES ────────────────────────────────────── */
-    #hobbies { border-top: 1px solid var(--border); }
-
-    .hobbies-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-
-    .hobby-tile { background: var(--surface); padding: 36px 32px; transition: background 0.2s; }
-    .hobby-tile:hover { background: var(--surface2); }
-
-    .hobby-tile-icon { font-size: 24px; margin-bottom: 16px; display: block; }
-    .hobby-tile-name { font-size: 16px; font-weight: 500; color: #fff; margin-bottom: 6px; }
-
-    .hobby-tile-detail {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-    }
-
-    .lifts { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
-
-    .lift-row { display: flex; align-items: center; gap: 10px; }
-
-    .lift-name {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      width: 48px;
-      flex-shrink: 0;
-    }
-
-    .lift-track { flex: 1; height: 2px; background: var(--border); }
-    .lift-fill { height: 100%; background: var(--green); }
-
-    .lift-val {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--green);
-      width: 34px;
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    /* ── CONTACT ────────────────────────────────────── */
-    #contact { border-top: 1px solid var(--border); padding-bottom: 160px; }
-
-    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-
-    .contact-headline {
-      font-size: clamp(22px, 3vw, 34px);
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      line-height: 1.3;
-      color: #fff;
-      margin-bottom: 20px;
-    }
-
-    .contact-sub { font-size: 15px; color: var(--muted); line-height: 1.7; }
-
-    .contact-links-col { display: flex; flex-direction: column; }
-
-    .contact-link {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--border);
       text-decoration: none;
-      transition: padding-left 0.25s;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+    }
+    .flag-link:hover { border-bottom-color: var(--red); }
+
+    /* ── work: project table ────────────────────────────────── */
+    .register { width: 100%; border-collapse: collapse; }
+    .register caption {
+      text-align: left;
+      color: var(--graphite);
+      padding-bottom: 12px;
+    }
+    .register th {
+      text-align: left;
+      color: var(--graphite);
+      font-weight: 400;
+      border-bottom: 1px solid var(--ink);
+      padding: 0 20px 10px 0;
+    }
+    .register td {
+      border-bottom: 1px solid var(--hairline);
+      padding: 20px 20px 20px 0;
+      vertical-align: top;
+    }
+    .register .pname {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .register .note-cell { color: var(--graphite); }
+    .register a { color: var(--red); text-decoration: none; }
+    .register a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+    /* hover: red slide-in rule along the row's bottom edge */
+    @media (hover: hover) {
+      .register tbody tr {
+        background-image: linear-gradient(var(--red), var(--red));
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        background-size: 0 1px;
+        transition: background-size 0.25s ease;
+      }
+      .register tbody tr:hover { background-size: 100% 1px; }
+      .register tbody tr:hover .pname { color: var(--red); }
     }
 
-    .contact-link:first-child { border-top: 1px solid var(--border); }
-    .contact-link:hover { padding-left: 10px; }
-    .contact-link:hover .cl-label { color: var(--green); }
+    /* mobile collapse: stacked cards, mono labels above values */
+    @media (max-width: 767px) {
+      .register thead { position: absolute; left: -9999px; }
+      .register, .register caption, .register tbody, .register tr, .register td { display: block; }
+      .register tr { border-bottom: 1px solid var(--hairline); padding-block: 20px; }
+      .register td { border: none; padding: 6px 0; }
+      .register td[data-label]::before {
+        content: attr(data-label);
+        display: block;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.6875rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--graphite);
+        margin-bottom: 2px;
+      }
+    }
 
-    .cl-label { font-size: 15px; font-weight: 500; color: var(--text); transition: color 0.2s; }
-    .cl-value { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
+    /* ── experience ─────────────────────────────────────────── */
+    .xp { list-style: none; border-top: 1px solid var(--hairline); }
+    .xp li {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-block: 22px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .xp .role { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; }
+    .xp .org { color: var(--graphite); }
+    .xp .when { margin-left: auto; color: var(--graphite); white-space: nowrap; }
 
-    .cl-arrow { color: var(--muted); font-size: 18px; transition: transform 0.2s, color 0.2s; }
-    .contact-link:hover .cl-arrow { transform: translate(3px, -3px); color: var(--green); }
+    @media (max-width: 767px) {
+      .xp .when { margin-left: 0; width: 100%; }
+    }
 
-    /* ── FOOTER ─────────────────────────────────────── */
-    footer { border-top: 1px solid var(--border); padding: 28px 0; }
+    /* ── contact ────────────────────────────────────────────── */
+    .contact .touch {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+    .contact .pitch { max-width: 52ch; color: var(--graphite); text-wrap: pretty; }
+    .channels { list-style: none; margin-top: 36px; border-top: 1px solid var(--hairline); }
+    .channels li { border-bottom: 1px solid var(--hairline); }
+    .channels a {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-block: 16px;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .channels .ch { color: var(--graphite); min-width: 90px; }
+    .channels .val { font-weight: 500; }
+    .channels .arrow { margin-left: auto; color: var(--graphite); }
+    .channels a:hover .val, .channels a:hover .arrow { color: var(--red); }
 
-    footer .inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 40px;
+    /* ── footer ─────────────────────────────────────────────── */
+    footer {
+      margin-top: clamp(4rem, 9vw, 8rem);
+      border-top: 1px solid var(--hairline);
+      padding-block: clamp(2rem, 4vw, 3rem);
+    }
+    .footline {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--graphite);
     }
-
-    .footer-name { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--green); letter-spacing: 0.08em; }
-    .footer-copy { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
-
-    /* ── RESPONSIVE ─────────────────────────────────── */
-    @media (max-width: 860px) {
-      .wrap { padding: 0 24px; }
-      nav .inner, footer .inner { padding: 0 24px; }
-      .hero-bottom { grid-template-columns: 1fr; }
-      .hero-meta { justify-content: flex-start; }
-      .about-layout { grid-template-columns: 1fr; gap: 48px; }
-      .project-row { grid-template-columns: 40px 1fr; }
-      .project-tags-col { display: none; }
-      .project-row:hover { margin: 0 -24px; padding: 40px 24px; }
-      .exp-grid { grid-template-columns: 1fr; }
-      .hobbies-layout { grid-template-columns: 1fr 1fr; }
-      .contact-layout { grid-template-columns: 1fr; gap: 48px; }
-    }
-
-    @media (max-width: 560px) {
-      .nav-links { display: none; }
-      .hobbies-layout { grid-template-columns: 1fr; }
-      .hero-meta { gap: 28px; }
-    }
-
-    /* ── ANIMATIONS ─────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-eyebrow { animation: fadeUp 0.7s ease both 0.05s; }
-    .hero-name    { animation: fadeUp 0.7s ease both 0.15s; }
-    .hero-bottom  { animation: fadeUp 0.7s ease both 0.3s; }
-
   </style>
 </head>
 <body>
+  <a class="skip mono" href="#work">Skip to work</a>
 
-  <!-- NAV -->
-  <nav>
-    <div class="inner">
-      <a href="#hero" class="nav-wordmark">Manjunath Sharma</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#hobbies">Hobbies</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <header>
+    <div class="wrap masthead">
+      <a class="name mono" href="#top">Manjunath Sharma</a>
+      <nav aria-label="Sections">
+        <ul class="mono">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="wrap">
-      <div class="hero-eyebrow">
-        <span class="status-dot"></span>
-        Mechatronics Engineer &nbsp;·&nbsp; UNSW Sydney
-      </div>
-      <div class="hero-name">
-        Manjunath
-        <span>Sharma</span>
-      </div>
-      <div class="hero-bottom">
-        <p class="hero-desc">
-          I design and build things:  from chemically powered vehicles to
-          self-hosted infrastructure. Currently at UNSW, competing internationally,
-          and pushing tolerances as close to zero as possible.
-        </p>
-        <div class="hero-meta">
-          <div class="meta-item">
-            <div class="meta-val">97.10</div>
-            <div class="meta-label">ATAR</div>
-          </div>
-          <div class="meta-item">
-            <div class="meta-val">4</div>
-            <div class="meta-label">Projects</div>
-          </div>
-          <div class="meta-item">
-            <div class="meta-val">ADF</div>
-            <div class="meta-label">Long Tan Award</div>
+  <main id="top">
+
+    <!-- ── HERO ──────────────────────────────────────────────── -->
+    <section class="hero" aria-label="Introduction">
+      <div class="wrap">
+        <span class="overline mono"><strong>Manjunath Sharma</strong> — Mechatronics Engineering · UNSW Sydney</span>
+        <h1>
+          <span>Pushing tolerances</span>
+          <span>as close to <span class="zero">zero</span></span>
+          <span>as possible.</span>
+        </h1>
+        <div class="grid">
+          <p class="lede">Mechatronics engineering student at UNSW Sydney and founder of Solidity Solutions. I work the boundary where hardware meets software — where design decisions have physical consequences.</p>
+          <div class="hero-rail">
+            <ul class="rail-list mono">
+              <li><strong>Sydney, AU</strong></li>
+              <li>UNSW Mechatronics</li>
+              <li>Founder — Solidity Solutions</li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrap">
-      <div class="section-label">About</div>
-      <div class="about-layout">
-        <div class="about-text">
-          <p>
-            I'm a <strong>Mechatronic Engineering student at UNSW</strong> with a deep focus on
-            CAD and mechanical fabrication. My work lives at the boundary
-            between hardware and software. Where design decisions have physical consequences.
-          </p>
-          <p>
-            I've led mechanical design on vehicles that will compete <strong>internationally in China</strong>,
-            run Cloudflare secured home servers, and optimised 3D printed assemblies to shave
-            filament and time without sacrificing fit. I care about precision in tolerances,
-            in code, and in how I explain things to others.
-          </p>
-          <p>
-            Outside engineering I teach HSC Physics, and I was honoured to receive the
-            <strong>ADF Long Tan Future Innovators Award</strong> for excellence in STEM.
-          </p>
+    <!-- ── PROFILE ───────────────────────────────────────────── -->
+    <section id="profile" aria-label="Profile">
+      <div class="wrap">
+        <div class="sec-head mono">
+          <h2 class="lbl">Profile</h2>
         </div>
-        <div class="about-aside">
-          <div class="aside-block">
-            <div class="aside-block-label">Toolset</div>
-            <div class="skill-list">
-              <span class="skill">SolidWorks</span>
-              <span class="skill">Fusion 360</span>
-              <span class="skill">FEA</span>
-              <span class="skill">C</span>
-              <span class="skill">3D Printing</span>
-              <span class="skill">DfM</span>
-              <span class="skill">SSH</span>
-              <span class="skill">Cloudflare</span>
-              <span class="skill">HTML / CSS</span>
+        <div class="grid">
+          <div class="prose">
+            <p>I design and build physical things with a CAD-first, design-for-manufacture mindset — from chemically powered competition vehicles to the instant-quoting engine behind a 3D-printing business.</p>
+            <p>My work lives where hardware meets software: precision-toleranced printed assemblies, adaptive power circuits, and the self-hosted infrastructure this page is served from. I care about precision — in tolerances, in code, and in how I explain things to the students I teach.</p>
+            <p>Outside of that: 3D printing, Fusion 360, teaching HSC physics, and picking up new tools when I get the chance.</p>
+          </div>
+          <div class="rail">
+            <div class="blk">
+              <ul class="rail-list mono">
+                <li>ATAR <strong>97.10</strong></li>
+                <li>Engineering Studies <strong>98</strong></li>
+                <li>Mathematics Adv <strong>95</strong></li>
+                <li>ADF Long Tan Future Innovators Award — <strong>Recipient</strong></li>
+              </ul>
             </div>
-          </div>
-          <div class="aside-block">
-            <div class="aside-block-label">Academic Results</div>
-            <div class="award-row">
-              <div class="award-entry">
-                <span class="award-name">ATAR</span>
-                <span class="award-score">97.10</span>
-              </div>
-              <div class="award-entry">
-                <span class="award-name">Engineering Studies</span>
-                <span class="award-score">98</span>
-              </div>
-              <div class="award-entry">
-                <span class="award-name">Mathematics Advanced</span>
-                <span class="award-score">95</span>
-              </div>
-              <div class="award-entry">
-                <span class="award-name">ADF Long Tan Award</span>
-                <span class="award-score" style="font-size:11px;letter-spacing:0.05em">Recipient</span>
-              </div>
+            <div class="blk">
+              <ul class="rail-list mono">
+                <li><strong>Toolset</strong></li>
+                <li>SolidWorks · Fusion 360 · FEA</li>
+                <li>3D Printing · DfM</li>
+                <li>C · SSH · Cloudflare · HTML/CSS</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="wrap">
-      <div class="section-label">Projects</div>
-      <h2>What I've <em>built</em></h2>
-      <div class="projects-list">
-
-        <div class="project-row">
-          <div class="project-index">01</div>
-          <div class="project-body">
-            <h3>ChemECar</h3>
-            <p>A model vehicle powered exclusively by chemical reactions, designed for international competition in China. Co-Led mechanical design in SolidWorks with a DfM first approach, producing precision 3D printed assemblies for cross-functional integration.</p>
-          </div>
-          <div class="project-tags-col">
-            <span class="ptag">SolidWorks</span>
-            <span class="ptag">3D Printing</span>
-            <span class="ptag">Competition</span>
-          </div>
+    <!-- ── WORK ──────────────────────────────────────────────── -->
+    <section id="work" aria-label="Work">
+      <div class="wrap">
+        <div class="sec-head mono">
+          <h2 class="lbl">Work</h2>
         </div>
 
-        <div class="project-row">
-          <div class="project-index">02</div>
-          <div class="project-body">
-            <h3>Solar Sunray Vehicle</h3>
-            <p>Solar-powered vehicle with a hybrid 4-panel array. Engineered an adaptive 8-switch circuit for real-time series/parallel toggling to optimise voltage and current delivery across variable irradiance conditions.</p>
+        <article class="flagship">
+          <div class="flag-tag mono">
+            <span class="founder">Founder</span>
+            <span class="co">Solidity Solutions — 3D printing, quoted in seconds</span>
           </div>
-          <div class="project-tags-col">
-            <span class="ptag">Power Electronics</span>
-            <span class="ptag">Circuit Design</span>
-            <span class="ptag">Solar</span>
-          </div>
-        </div>
+          <h3>Solidity Solutions</h3>
+          <p>Upload a CAD model, get a manufacturable price in seconds. Solidity Solutions is a 3D-printing service built around an instant-quoting engine: it parses the uploaded mesh, prices the part straight from slicer output, renders it in an in-browser 3D viewer, and takes payment — no email chains, no week-long RFQs.</p>
+          <dl class="spec mono">
+            <div><dt>Input</dt><dd>STEP · STL CAD models</dd></div>
+            <div><dt>Engine</dt><dd>Mesh parsing · slicer-driven pricing</dd></div>
+            <div><dt>Output</dt><dd>Instant quote · 3D viewer · Stripe checkout</dd></div>
+          </dl>
+          <a class="flag-link mono" href="https://soliditysolutions.com.au" target="_blank" rel="noopener">Visit soliditysolutions.com.au ↗</a>
+        </article>
 
-        <div class="project-row">
-          <div class="project-index">03</div>
-          <div class="project-body">
-            <h3>Gridfinity System</h3>
-            <p>Extended Zach Freedman's modular storage system with custom Fusion 360 housings. Precision-toleranced for perfect fit while reducing filament and print time. A study in constrained DfM.</p>
-          </div>
-          <div class="project-tags-col">
-            <span class="ptag">Fusion 360</span>
-            <span class="ptag">Additive Mfg</span>
-          </div>
-        </div>
-
-        <div class="project-row">
-          <div class="project-index">04</div>
-          <div class="project-body">
-            <h3>Self-Hosted Website</h3>
-            <p>This site runs on a private home server, traffic routed through Cloudflare Tunnels to mask the home IP. An interesting project that delves into, SSH security, and building public-facing infrastructure with a security-first mindset.</p>
-          </div>
-          <div class="project-tags-col">
-            <span class="ptag">Cloudflare</span>
-            <span class="ptag">Networking</span>
-            <span class="ptag">SSH</span>
-          </div>
-        </div>
-
+        <table class="register" role="table">
+          <caption class="mono">Other projects</caption>
+          <thead class="mono" role="rowgroup">
+            <tr role="row"><th scope="col" role="columnheader">Project</th><th scope="col" role="columnheader">Role</th><th scope="col" role="columnheader">Tooling</th><th scope="col" role="columnheader">Note</th></tr>
+          </thead>
+          <tbody role="rowgroup">
+            <tr role="row">
+              <td class="pname" role="cell">ChemECar</td>
+              <td class="mono" role="cell" data-label="Role">Mech design co-lead</td>
+              <td class="mono" role="cell" data-label="Tooling">SolidWorks · FDM · DfM</td>
+              <td class="note-cell mono" role="cell" data-label="Note">Chemically powered vehicle — int'l competition, China</td>
+            </tr>
+            <tr role="row">
+              <td class="pname" role="cell">Solar Sunray Vehicle</td>
+              <td class="mono" role="cell" data-label="Role">Circuit design</td>
+              <td class="mono" role="cell" data-label="Tooling">Power electronics</td>
+              <td class="note-cell mono" role="cell" data-label="Note">Adaptive 8-switch series/parallel array</td>
+            </tr>
+            <tr role="row">
+              <td class="pname" role="cell">Pantrific</td>
+              <td class="mono" role="cell" data-label="Role">Hackathon build</td>
+              <td class="mono" role="cell" data-label="Tooling">Raspberry Pi · YOLO</td>
+              <td class="note-cell mono" role="cell" data-label="Note">UNIHACK 2026 · <a href="/pantrific/">/pantrific ↗</a></td>
+            </tr>
+            <tr role="row">
+              <td class="pname" role="cell">Gridfinity System</td>
+              <td class="mono" role="cell" data-label="Role">Design + tolerancing</td>
+              <td class="mono" role="cell" data-label="Tooling">Fusion 360 · FDM</td>
+              <td class="note-cell mono" role="cell" data-label="Note">Constrained DfM study</td>
+            </tr>
+            <tr role="row">
+              <td class="pname" role="cell">This Website</td>
+              <td class="mono" role="cell" data-label="Role">Infrastructure</td>
+              <td class="mono" role="cell" data-label="Tooling">Cloudflare Tunnel · SSH</td>
+              <td class="note-cell mono" role="cell" data-label="Note">You are looking at it — served from a home server</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="wrap">
-      <div class="section-label">Experience</div>
-      <h2>Where I've <em>taught</em></h2>
-      <div class="exp-grid">
-
-        <div class="exp-card">
-          <div class="exp-period">Current</div>
-          <h3>Physics Specialist</h3>
-          <div class="exp-org">Ngo &amp; Sons</div>
-          <ul class="exp-points">
-            <li>Specialist HSC Physics tutoring</li>
-            <li>Curriculum content optimisation</li>
-            <li>Online platform creation and management</li>
-          </ul>
+    <!-- ── EXPERIENCE ────────────────────────────────────────── -->
+    <section id="experience" aria-label="Experience">
+      <div class="wrap">
+        <div class="sec-head mono">
+          <h2 class="lbl">Experience</h2>
         </div>
-
-        <div class="exp-card">
-          <div class="exp-period">Prior</div>
-          <h3>HSC Physics Mentor</h3>
-          <div class="exp-org">Private — Top 50 NSW Schools</div>
-          <ul class="exp-points">
-            <li>Privately tutored students across NSW's top 50 schools</li>
-            <li>Students consistently achieved top 10 school ranks in Physics</li>
-          </ul>
-        </div>
-
+        <ul class="xp">
+          <li>
+            <span class="role">Founder</span>
+            <span class="org">Solidity Solutions</span>
+            <span class="when mono">Current</span>
+          </li>
+          <li>
+            <span class="role">Physics Specialist</span>
+            <span class="org">Ngo &amp; Sons</span>
+            <span class="when mono">Current</span>
+          </li>
+          <li>
+            <span class="role">HSC Physics Mentor</span>
+            <span class="org">Private · top-50 NSW schools</span>
+            <span class="when mono">Prior</span>
+          </li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- HOBBIES -->
-  <section id="hobbies">
-    <div class="wrap">
-      <div class="section-label">Outside Work</div>
-      <h2>How I spend <em>the rest</em></h2>
-      <div class="hobbies-layout">
-
-        <div class="hobby-tile">
-          <span class="hobby-tile-icon">🖨️</span>
-          <div class="hobby-tile-name">3D Printing &amp; CAD</div>
-          <div class="hobby-tile-detail">Fusion 360 · FDM · Tolerancing</div>
+    <!-- ── CONTACT ───────────────────────────────────────────── -->
+    <section id="contact" class="contact" aria-label="Contact">
+      <div class="wrap">
+        <div class="sec-head mono">
+          <h2 class="lbl">Contact</h2>
         </div>
-
-        <div class="hobby-tile">
-          <span class="hobby-tile-icon">🏋️</span>
-          <div class="hobby-tile-name">Strength Training</div>
-          <div class="hobby-tile-detail">All 3 rep maxes.</div>
-          <div class="lifts">
-            <div class="lift-row">
-              <span class="lift-name">Bench</span>
-              <div class="lift-track"><div class="lift-fill" style="width:57%"></div></div>
-              <span class="lift-val">85 kg</span>
-            </div>
-            <div class="lift-row">
-              <span class="lift-name">Squat</span>
-              <div class="lift-track"><div class="lift-fill" style="width:67%"></div></div>
-              <span class="lift-val">100 kg</span>
-            </div>
-            <div class="lift-row">
-              <span class="lift-name">Deadlift</span>
-              <div class="lift-track"><div class="lift-fill" style="width:100%"></div></div>
-              <span class="lift-val">150 kg</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hobby-tile">
-          <span class="hobby-tile-icon">🏃</span>
-          <div class="hobby-tile-name">Running</div>
-          <div class="hobby-tile-detail">Distance PR: 14 km</div>
-        </div>
-
-        <div class="hobby-tile">
-          <span class="hobby-tile-icon">📡</span>
-          <div class="hobby-tile-name">Teaching</div>
-          <div class="hobby-tile-detail">Physics · Maths · STEM</div>
-        </div>
-
-        <div class="hobby-tile">
-          <span class="hobby-tile-icon">⚙️</span>
-          <div class="hobby-tile-name">Learning New Tools</div>
-          <div class="hobby-tile-detail">Continuous engineering education</div>
-        </div>
-
+        <h3 class="touch">Get in touch.</h3>
+        <p class="pitch">Open to roles, research, and any engineering problem that's hard enough to be interesting.</p>
+        <ul class="channels">
+          <li>
+            <a href="mailto:manjunath.sharma.official@gmail.com">
+              <span class="ch mono">Email</span>
+              <span class="val">manjunath.sharma.official@gmail.com</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/manjunath-sharma10" target="_blank" rel="noopener">
+              <span class="ch mono">LinkedIn</span>
+              <span class="val">manjunath-sharma10</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/manjunathsharma10" target="_blank" rel="noopener">
+              <span class="ch mono">GitHub</span>
+              <span class="val">manjunathsharma10</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="section-label">Contact</div>
-      <div class="contact-layout">
-        <div>
-          <div class="contact-headline">
-            Have an opportunity where I can learn and push myself further?
-          </div>
-          <p class="contact-sub">
-            I'm open to roles, research, and any challenging engineering problems.
-            Don't hesitate to reach out.
-          </p>
-        </div>
-        <div class="contact-links-col">
-          <a href="mailto:manjunath.sharma.official@gmail.com" class="contact-link">
-            <span class="cl-label">Email</span>
-            <span class="cl-value">mmaniyoormadham@gmail.com</span>
-            <span class="cl-arrow">↗</span>
-          </a>
-          <a href="https://linkedin.com/in/manjunath-sharma10" target="_blank" class="contact-link">
-            <span class="cl-label">LinkedIn</span>
-            <span class="cl-value">manjunath-sharma10</span>
-            <span class="cl-arrow">↗</span>
-          </a>
-          <a href="https://github.com/manjunathsharma10" target="_blank" class="contact-link">
-            <span class="cl-label">GitHub</span>
-            <span class="cl-value">manjunathsharma10</span>
-            <span class="cl-arrow">↗</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
-    <div class="inner">
-      <span class="footer-name">Manjunath Sharma</span>
-      <span class="footer-copy">© 2026 · Self-Hosted · Sydney</span>
+    <div class="wrap">
+      <div class="footline mono">
+        <span>Manjunath Sharma · Sydney, AU</span>
+        <span>© 2026 Manjunath Sharma</span>
+      </div>
     </div>
   </footer>
-
 </body>
 </html>
